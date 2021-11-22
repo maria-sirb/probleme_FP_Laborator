@@ -265,11 +265,13 @@ namespace probleme_FP_Laborator
                 }
 
             }
-           
-
+ 
            Console.WriteLine($"Numerele {a} si {b}" + (verif == 1 ? " " : " nu ") + "sunt prime intre ele.");
 
         }
+        /// <summary>
+        /// Tabel cu valorile temperaturilor F si C
+        /// </summary>
         private static void P12()
         {
             double F, C;

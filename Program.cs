@@ -6,7 +6,7 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P16();
+            P21();
         }
         /// <summary>
         /// Convrteste tempertura din celsius in fahrenheit si invers
@@ -322,6 +322,108 @@ namespace probleme_FP_Laborator
             int r = int.Parse(Console.ReadLine());
             Console.WriteLine(2 * n * r);
         }
+        /// <summary>
+        /// Calculeaza viteza unui punct material in momentul t
+        /// </summary>
+        private static void P17()
+        {
+            float x0 = float.Parse(Console.ReadLine());
+            float t0 = float.Parse(Console.ReadLine());
+            float x = float.Parse(Console.ReadLine());
+            float t = float.Parse(Console.ReadLine());
+            float viteza = (x - x0) / (t - t0);
+           Console.WriteLine($"Viteza in momentul t = {t} este {viteza} m/s.");
+        }
+        /// <summary>
+        /// m aritmetica sau m geometrica
+        /// </summary>
+        private static void P18()
+        {
+            float a = float.Parse(Console.ReadLine());
+            float b = float.Parse(Console.ReadLine());
+            Console.WriteLine("Ce doriti sa calculam: media aritmetica (1) sau media geometrica(2)?");
+            int input = int.Parse(Console.ReadLine());
+            if(input == 1)
+            {
+                Console.WriteLine((a + b) / 2);
+            }
+            else if( input == 2)
+            {
+                if (a >= 0 && b >= 0)
+                {
+                    Console.WriteLine(Math.Sqrt(a * b));
+                }
+                else
+                {
+                    Console.WriteLine("eroare!");
+                }
+            }
+
+        }
+        /// <summary>
+        /// Calculeaza aria sau perimetrul unui triunghi
+        /// </summary>
+        private static void P19()
+        {
+            float a = float.Parse(Console.ReadLine());
+            float b = float.Parse(Console.ReadLine());
+            float c = float.Parse(Console.ReadLine());
+            Console.WriteLine("Ce doriti sa calculam: aria sau perimetrul?");
+            string input = Console.ReadLine();
+            if(input == "aria")
+            {
+                float p = (a + b + c) / 2;
+                Console.WriteLine($"A = {Math.Sqrt(p * (p - a) * (p - b) * (p - c))} ");
+            }
+            else if (input == "perimetrul")
+            {
+                Console.WriteLine($"P = {a + b + c}");
+            }
+
+
+
+        }
+        /// <summary>
+        /// Calculeaza m. aritmetica a numerelor dintr- o secventa
+        /// </summary>
+        private static void P20 ()
+        {
+            float s = 0, nr = 0;
+            float n;
+            do
+            {
+                n = float.Parse(Console.ReadLine());
+                s = s + n;
+                nr++;
+               
+
+            } while (n != 0);
+            nr--;
+            Console.WriteLine(s / nr);
+        }
+        /// <summary>
+        /// Determina cate numere dintr-o secventa impartite la p dau restul k
+        /// </summary>
+        private static void P21()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int p = int.Parse(Console.ReadLine());
+            int k = int.Parse(Console.ReadLine());
+            int contor = 0;
+            for(int i = 1; i <= n; i++)
+            {
+                int nr = int.Parse(Console.ReadLine());
+                if(nr % p == k)
+                {
+                    contor++;
+                }
+            }
+            Console.WriteLine($"{contor} numere din secventa au restul {k} la impartirea cu {p}.");
+
+
+
+        }
+
 
 
     }

@@ -6,7 +6,7 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P21();
+            P27();
         }
         /// <summary>
         /// Convrteste tempertura din celsius in fahrenheit si invers
@@ -423,7 +423,103 @@ namespace probleme_FP_Laborator
 
 
         }
+        /// <summary>
+        /// Calculeaza produsul a doua numere prin adunari repetate
+        /// </summary>
+        private static void P22()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int p = int.Parse(Console.ReadLine());
+            int produs = 0;
+            for (int i = 1; i <= p; i++)
+            {
+                produs += n;
+            }
+            Console.WriteLine($"{n} * {p} = {produs}");
 
+        }
+        /// <summary>
+        /// Calculeaza impartirea a doua numere prin scaderi repetate
+        /// </summary>
+        private static void P23()
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            int p = int.Parse(Console.ReadLine());
+            int raport = 0, copien  = n;
+            while(copien > 0)
+            {
+                copien = copien - p;
+                if (copien >= 0)
+                {
+                    raport++;
+                }
+            }
+            Console.WriteLine($"{n} / {p} = {raport}");
+        }
+        /// <summary>
+        /// Determina cate cifre are un numar
+        /// </summary>
+        private static void P24()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int nrCifre = 0;
+            while(n > 0)
+            {
+                n = n / 10;
+                nrCifre++;
+
+            }
+            Console.WriteLine($"Numarul are {nrCifre} cifre.");
+        }
+        /// <summary>
+        /// Determina daca un nr e palindrom
+        /// </summary>
+        private static void P25()
+        {
+
+        }
+        /// <summary>
+        /// Afiseaza nr prime mai mici sau egale cu m
+        /// </summary>
+        private static void P26()
+        {
+
+        }
+        /// <summary>
+        /// Afiseaza primele n nr prime care au suma cifrelor <= m
+        /// </summary>
+        /// <returns></returns>
+        private static void P27()
+        {
+
+            int n = int.Parse(Console.ReadLine());
+
+            int m = int.Parse(Console.ReadLine());
+            int sumaCifre;
+            if(2 <= m)
+            {
+                Console.Write(2 + " ");
+            }
+            int i = 0, nr = 3;
+            while(i < n)
+            {
+                int copieNr = nr;
+                sumaCifre = 0;
+                while(copieNr > 0)
+                {
+                   
+                    sumaCifre += copieNr % 10;
+                    copieNr = copieNr / 10;
+                }
+                if(sumaCifre <= m)
+                {
+                    Console.Write(nr + " ");
+                    i++;
+                }
+                nr += 2;
+            }
+        }
 
 
     }

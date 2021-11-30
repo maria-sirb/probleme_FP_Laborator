@@ -506,6 +506,7 @@ namespace probleme_FP_Laborator
             {
                 int copieNr = nr;
                 sumaCifre = 0;
+                // + verificare daca e nr prim
                 while(copieNr > 0)
                 {
                    

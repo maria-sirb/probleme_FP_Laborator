@@ -6,10 +6,10 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P27();
+            P26();
         }
         /// <summary>
-        /// Convrteste tempertura din celsius in fahrenheit si invers
+        /// Convrtese tempertura din celsius in fahrenheit si invers
         /// </summary>
         private static void P1()
         {
@@ -221,7 +221,33 @@ namespace probleme_FP_Laborator
         /// </summary>
         private static void P9()
         {
-            //probleme fp set 1
+            int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+            int n1 = n, n2 = n;
+            int m1 = m, m2 = m;
+
+            int rest;
+            while (m1 != 0)
+            {
+                rest = n1 % m1;
+                n1 = m1;
+                m1 = rest;
+
+            }
+            while (n2 != m2)
+            {
+                if (n2 < m2)
+                {
+                    n2 = n2 + n;
+                }
+                else
+                {
+                    m2 = m2 + m;
+
+                }
+            }
+            Console.WriteLine($"Cel mai mare divizor comun al numerelor {n} si {m} este {n1} si cel mai mic multiplu comun este {n2}");
+
         }
         /// <summary>
         /// Afiseaza primele n numere prime
@@ -298,6 +324,24 @@ namespace probleme_FP_Laborator
         /// </summary>
         private static void P14()
         {
+            int min = int.MaxValue;
+            int max = int.MinValue;
+            int numar;
+
+            do
+            {
+                numar = int.Parse(Console.ReadLine());
+                if (numar < min)
+                {
+                    min = numar;
+                }
+                if (numar > max)
+                {
+                    max = numar;
+                }
+            } while (numar != 0);
+                Console.WriteLine($"Cea mai mare valoare din secventa este : {max}.");
+            Console.WriteLine($"Cea mai mica valoare din secventa este: {min}.");
 
         }
         /// <summary>
@@ -477,6 +521,15 @@ namespace probleme_FP_Laborator
         /// </summary>
         private static void P25()
         {
+            int n = int.Parse(Console.ReadLine());
+            int oglindit = 0, cifra, copien = n;
+            while (n != 0)
+            {
+                cifra = n % 10;
+                n = n / 10;
+                oglindit = oglindit * 10 + cifra;
+            }
+            Console.WriteLine($"numarul {copien} " + (oglindit == copien ? "" : "nu ") + "este palindrom.");
 
         }
         /// <summary>
@@ -484,7 +537,27 @@ namespace probleme_FP_Laborator
         /// </summary>
         private static void P26()
         {
-
+            int m = int.Parse(Console.ReadLine());
+            if(2 <= m)
+            {
+                Console.Write(2 + " ");
+            }
+            for(int i = 3; i<= m;i +=2)
+            {
+                int prim = 1;
+                for (int div = 2; div <= i / 2; div++)
+                {
+                    if (i % div == 0)
+                    {
+                        prim = 0;
+                        break;
+                    }
+                }
+                if(prim == 1)
+                {
+                    Console.Write(i + " ");
+                }
+            }
         }
         /// <summary>
         /// Afiseaza primele n nr prime care au suma cifrelor <= m
@@ -496,31 +569,176 @@ namespace probleme_FP_Laborator
             int n = int.Parse(Console.ReadLine());
 
             int m = int.Parse(Console.ReadLine());
-            int sumaCifre;
+           
             if(2 <= m)
             {
                 Console.Write(2 + " ");
             }
-            int i = 0, nr = 3;
+            int i = 0, nr = 3, prim , sumaCifre;
             while(i < n)
             {
                 int copieNr = nr;
                 sumaCifre = 0;
-                // + verificare daca e nr prim
-                while(copieNr > 0)
+                prim = 1;
+                for (int div = 2; div <= nr / 2; div++)
                 {
-                   
-                    sumaCifre += copieNr % 10;
-                    copieNr = copieNr / 10;
+                    if (nr % div == 0)
+                    {
+                        prim = 0;
+                        break;
+                    }
                 }
-                if(sumaCifre <= m)
+             
+                if (prim == 1)
                 {
-                    Console.Write(nr + " ");
-                    i++;
+                    while (copieNr > 0)
+                    {
+
+                        sumaCifre += copieNr % 10;
+                        copieNr = copieNr / 10;
+                    }
+                    if (sumaCifre <= m)
+                    {
+                        Console.Write(nr + " ");
+                        i++;
+                    }
+                   
                 }
                 nr += 2;
             }
         }
+        /// <summary>
+        /// Afiseaza totate nr prime de 3 cifre care citite invers sunt tot numere prime
+        /// </summary>
+        private static void P28()
+        {
+            int n = 101;
+            while(n < 1000)
+            {
+                int prim = 1;
+                for (int div = 2; div <= n / 2; div++)
+                {
+                    if (n % div == 0)
+                    {
+                        prim = 0;
+                        break;
+                    }
+                }
+                if(prim == 1)
+                {
+                    int oglindit = 0, copien = n;
+                    while (copien != 0)
+                    {
+                      
+                        oglindit = oglindit * 10 + copien % 10;
+                        copien = copien / 10;
+                    }
+                    int primo = 1;
+                    for (int div = 2; div <= oglindit / 2; div++)
+                    {
+                        if (oglindit % div == 0)
+                        {
+                            primo = 0;
+                            break;
+                        }
+                    }
+                    if(primo == 1)
+                    {
+                        Console.WriteLine(n);
+                    }
+                }
+                n += 2;
+            }
+        }
+        /// <summary>
+        /// Afiseaza primele n numere care au suma cifrelor divizibila cu 5
+        /// </summary>
+        private static void P29()
+        {
+            int n = int.Parse(Console.ReadLine());
+            if(0 <= n)
+            {
+                Console.Write(0 + " ");
+            }
+            if (5 <= n)
+            {
+                Console.Write(5 + " ");
+            }
+            int nr = 14;
+            while (nr <= n)
+            {
+                int sumaCf = 0, copieNr = nr;
+                while(copieNr > 0)
+                {
+                    sumaCf += copieNr % 10;
+                    copieNr = copieNr / 10;
+                }
+                if(sumaCf % 5 == 0)
+                {
+                    Console.Write(nr + " ");
+                }
+                nr++;
+
+            }
+
+        }
+        /// <summary>
+        /// Converteste un numar din baza 10 in baza p < 10
+        /// </summary>
+        private static void P30A()
+        {
+           
+            int n = int.Parse(Console.ReadLine());
+            int p = int.Parse(Console.ReadLine());
+            int copien = n, rez = 0, i = 1;
+            while(copien > 0)
+            {
+                rez = rez + i * (copien % p);
+                i *= 10;
+                copien /= p;
+
+            }
+            Console.WriteLine($" {n} (10) = {rez} ({p})");
+            
+        }
+      /// <summary>
+      /// Converteste un numar din baza p < 10 in baza 10
+      /// </summary>
+        private static void P30B()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int p = int.Parse(Console.ReadLine());
+            int pow = 0, copien = n;
+            double rez = 0;
+            while(copien > 0)
+            {
+                rez = rez + (copien % 10) * Math.Pow(p, pow);
+                pow++;
+                copien /= 10;
+            }
+            Console.WriteLine($" {n} ({p}) = {rez} (10)");
+           
+        }
+       
+        ///  /// <summary>
+        /// Transforma radiani in grade
+        /// </summary>
+        private static void P34A()
+        {
+            double rad = double.Parse(Console.ReadLine());
+            Console.WriteLine(rad * 180);
+        }
+        /// <summary>
+        /// Transforma grade in radiani
+        /// </summary>
+        private static void P34B()
+        {
+            double gr = double.Parse(Console.ReadLine());
+            Console.WriteLine(gr / 180);
+        }
+
+
+
 
 
     }

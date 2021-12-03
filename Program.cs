@@ -6,7 +6,8 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P26();
+            P48();
+               
         }
         /// <summary>
         /// Convrtese tempertura din celsius in fahrenheit si invers
@@ -44,23 +45,23 @@ namespace probleme_FP_Laborator
                     nr2 = double.Parse(Console.ReadLine());
                     result = nr1 + nr2;
                     Console.WriteLine(result);
-                 break;
+                    break;
                 case "-":
-                   
-                     nr1 = int.Parse(Console.ReadLine());
-                     nr2 = int.Parse(Console.ReadLine());
+
+                    nr1 = int.Parse(Console.ReadLine());
+                    nr2 = int.Parse(Console.ReadLine());
                     result = nr1 - nr2;
                     Console.WriteLine(result);
                     break;
                 case "*":
-                   
+
                     nr1 = double.Parse(Console.ReadLine());
                     nr2 = double.Parse(Console.ReadLine());
                     result = nr1 * nr2;
                     Console.WriteLine(result);
                     break;
                 case ":":
-                     nr1 = double.Parse(Console.ReadLine());
+                    nr1 = double.Parse(Console.ReadLine());
                     nr2 = double.Parse(Console.ReadLine());
                     result = nr1 / nr2;
                     Console.WriteLine(result);
@@ -90,7 +91,7 @@ namespace probleme_FP_Laborator
             int i = int.Parse(Console.ReadLine());
             int j = int.Parse(Console.ReadLine());
             int k = int.Parse(Console.ReadLine());
-            Console.WriteLine(Math.Pow(i,j) % k);
+            Console.WriteLine(Math.Pow(i, j) % k);
         }
         /// <summary>
         /// Determina daca un numar este perfect (este egali cu suma divizorilor diferiti de el insusi)
@@ -99,15 +100,15 @@ namespace probleme_FP_Laborator
         {
             int n = int.Parse(Console.ReadLine());
             int div, suma = 0;
-            for(div = 1; div <= n/2; div++)
+            for (div = 1; div <= n / 2; div++)
             {
-                if(n% div == 0)
+                if (n % div == 0)
                 {
                     suma += div;
                 }
 
             }
-            Console.WriteLine("Numarul " + (suma == n? "":"nu ") + "este perfect.");
+            Console.WriteLine("Numarul " + (suma == n ? "" : "nu ") + "este perfect.");
         }
         /// <summary>
         /// Determina numerele perfecte din intervalul [a, b]
@@ -118,7 +119,7 @@ namespace probleme_FP_Laborator
             int b = int.Parse(Console.ReadLine());
 
             int div, suma;
-            for(int i = a; i<= b; i++)
+            for (int i = a; i <= b; i++)
             {
                 suma = 0;
                 for (div = 1; div <= i / 2; div++)
@@ -129,7 +130,7 @@ namespace probleme_FP_Laborator
                     }
 
                 }
-                if(suma == i)
+                if (suma == i)
                 {
                     Console.WriteLine(i);
                 }
@@ -143,7 +144,7 @@ namespace probleme_FP_Laborator
             int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
             int sumai = 0, sumaj = 0, div, i, j;
-            for(i = a; i<=b; i++)
+            for (i = a; i <= b; i++)
             {
                 sumai = 0;
                 for (div = 2; div <= i / 2; div++)
@@ -154,7 +155,7 @@ namespace probleme_FP_Laborator
                     }
 
                 }
-                for( j = i+1; j<= b; j++)
+                for (j = i + 1; j <= b; j++)
                 {
                     sumaj = 0;
                     for (div = 2; div <= j / 2; div++)
@@ -165,7 +166,7 @@ namespace probleme_FP_Laborator
                         }
 
                     }
-                    if(sumai == sumaj )
+                    if (sumai == sumaj)
                     {
                         Console.WriteLine($"{i}, {j}");
                     }
@@ -182,11 +183,11 @@ namespace probleme_FP_Laborator
             int n = int.Parse(Console.ReadLine());
             int k = int.Parse(Console.ReadLine());
             int numarat = 1, numit = 1;
-            for(int i = k + 1; i<= n; i++)
+            for (int i = k + 1; i <= n; i++)
             {
                 numarat = numarat * i;
             }
-            for(int i = 2; i<= n - k; i++)
+            for (int i = 2; i <= n - k; i++)
             {
                 numit = numit * i;
 
@@ -200,9 +201,9 @@ namespace probleme_FP_Laborator
         {
             double a = double.Parse(Console.ReadLine());
             double suma = 0, produs = 1, nrdiv = 0, sumaarm = 0;
-            for(int i = 1; i <= a; i++)
+            for (int i = 1; i <= a; i++)
             {
-                if(a % i == 0)
+                if (a % i == 0)
                 {
                     suma += i;
                     sumaarm += 1 / i;
@@ -257,17 +258,17 @@ namespace probleme_FP_Laborator
             int n = int.Parse(Console.ReadLine());
             int nrprime = 1, nr = 3, verif;
             Console.WriteLine(2);
-            while(nrprime < n)
+            while (nrprime < n)
             {
                 verif = 1;
-                for(int div = 2; div<= nr/2 && verif == 1; div++)
+                for (int div = 2; div <= nr / 2 && verif == 1; div++)
                 {
-                    if(nr % div == 0)
+                    if (nr % div == 0)
                     {
                         verif = 0;
                     }
                 }
-                if(verif == 1)
+                if (verif == 1)
                 {
                     nrprime++;
                     Console.WriteLine(nr);
@@ -283,16 +284,16 @@ namespace probleme_FP_Laborator
             int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
             int verif = 1;
-            for(int div = 2; div <= Math.Min(a, b); div++ )
+            for (int div = 2; div <= Math.Min(a, b); div++)
             {
-                if(a % div == 0 && b % div == 0)
+                if (a % div == 0 && b % div == 0)
                 {
                     verif = 0;
                 }
 
             }
- 
-           Console.WriteLine($"Numerele {a} si {b}" + (verif == 1 ? " " : " nu ") + "sunt prime intre ele.");
+
+            Console.WriteLine($"Numerele {a} si {b}" + (verif == 1 ? " " : " nu ") + "sunt prime intre ele.");
 
         }
         /// <summary>
@@ -302,9 +303,9 @@ namespace probleme_FP_Laborator
         {
             double F, C;
             Console.WriteLine("F        C");
-            for(F = 0; F<= 300; F++)
+            for (F = 0; F <= 300; F++)
             {
-                Console.WriteLine($"{F}        {(5* (F - 32))/9}");
+                Console.WriteLine($"{F}        {(5 * (F - 32)) / 9}");
 
             }
 
@@ -340,7 +341,7 @@ namespace probleme_FP_Laborator
                     max = numar;
                 }
             } while (numar != 0);
-                Console.WriteLine($"Cea mai mare valoare din secventa este : {max}.");
+            Console.WriteLine($"Cea mai mare valoare din secventa este : {max}.");
             Console.WriteLine($"Cea mai mica valoare din secventa este: {min}.");
 
         }
@@ -351,7 +352,7 @@ namespace probleme_FP_Laborator
         {
             int n = int.Parse(Console.ReadLine());
             int factorial = 1;
-            for(int i = 2; i<= n; i++)
+            for (int i = 2; i <= n; i++)
             {
                 factorial *= i;
             }
@@ -376,7 +377,7 @@ namespace probleme_FP_Laborator
             float x = float.Parse(Console.ReadLine());
             float t = float.Parse(Console.ReadLine());
             float viteza = (x - x0) / (t - t0);
-           Console.WriteLine($"Viteza in momentul t = {t} este {viteza} m/s.");
+            Console.WriteLine($"Viteza in momentul t = {t} este {viteza} m/s.");
         }
         /// <summary>
         /// m aritmetica sau m geometrica
@@ -387,11 +388,11 @@ namespace probleme_FP_Laborator
             float b = float.Parse(Console.ReadLine());
             Console.WriteLine("Ce doriti sa calculam: media aritmetica (1) sau media geometrica(2)?");
             int input = int.Parse(Console.ReadLine());
-            if(input == 1)
+            if (input == 1)
             {
                 Console.WriteLine((a + b) / 2);
             }
-            else if( input == 2)
+            else if (input == 2)
             {
                 if (a >= 0 && b >= 0)
                 {
@@ -414,7 +415,7 @@ namespace probleme_FP_Laborator
             float c = float.Parse(Console.ReadLine());
             Console.WriteLine("Ce doriti sa calculam: aria sau perimetrul?");
             string input = Console.ReadLine();
-            if(input == "aria")
+            if (input == "aria")
             {
                 float p = (a + b + c) / 2;
                 Console.WriteLine($"A = {Math.Sqrt(p * (p - a) * (p - b) * (p - c))} ");
@@ -430,7 +431,7 @@ namespace probleme_FP_Laborator
         /// <summary>
         /// Calculeaza m. aritmetica a numerelor dintr- o secventa
         /// </summary>
-        private static void P20 ()
+        private static void P20()
         {
             float s = 0, nr = 0;
             float n;
@@ -439,7 +440,7 @@ namespace probleme_FP_Laborator
                 n = float.Parse(Console.ReadLine());
                 s = s + n;
                 nr++;
-               
+
 
             } while (n != 0);
             nr--;
@@ -454,10 +455,10 @@ namespace probleme_FP_Laborator
             int p = int.Parse(Console.ReadLine());
             int k = int.Parse(Console.ReadLine());
             int contor = 0;
-            for(int i = 1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 int nr = int.Parse(Console.ReadLine());
-                if(nr % p == k)
+                if (nr % p == k)
                 {
                     contor++;
                 }
@@ -490,8 +491,8 @@ namespace probleme_FP_Laborator
 
             int n = int.Parse(Console.ReadLine());
             int p = int.Parse(Console.ReadLine());
-            int raport = 0, copien  = n;
-            while(copien > 0)
+            int raport = 0, copien = n;
+            while (copien > 0)
             {
                 copien = copien - p;
                 if (copien >= 0)
@@ -508,7 +509,7 @@ namespace probleme_FP_Laborator
         {
             int n = int.Parse(Console.ReadLine());
             int nrCifre = 0;
-            while(n > 0)
+            while (n > 0)
             {
                 n = n / 10;
                 nrCifre++;
@@ -538,11 +539,11 @@ namespace probleme_FP_Laborator
         private static void P26()
         {
             int m = int.Parse(Console.ReadLine());
-            if(2 <= m)
+            if (2 <= m)
             {
                 Console.Write(2 + " ");
             }
-            for(int i = 3; i<= m;i +=2)
+            for (int i = 3; i <= m; i += 2)
             {
                 int prim = 1;
                 for (int div = 2; div <= i / 2; div++)
@@ -553,7 +554,7 @@ namespace probleme_FP_Laborator
                         break;
                     }
                 }
-                if(prim == 1)
+                if (prim == 1)
                 {
                     Console.Write(i + " ");
                 }
@@ -569,13 +570,13 @@ namespace probleme_FP_Laborator
             int n = int.Parse(Console.ReadLine());
 
             int m = int.Parse(Console.ReadLine());
-           
-            if(2 <= m)
+
+            if (2 <= m)
             {
                 Console.Write(2 + " ");
             }
-            int i = 0, nr = 3, prim , sumaCifre;
-            while(i < n)
+            int i = 0, nr = 3, prim, sumaCifre;
+            while (i < n)
             {
                 int copieNr = nr;
                 sumaCifre = 0;
@@ -588,7 +589,7 @@ namespace probleme_FP_Laborator
                         break;
                     }
                 }
-             
+
                 if (prim == 1)
                 {
                     while (copieNr > 0)
@@ -602,7 +603,7 @@ namespace probleme_FP_Laborator
                         Console.Write(nr + " ");
                         i++;
                     }
-                   
+
                 }
                 nr += 2;
             }
@@ -613,7 +614,7 @@ namespace probleme_FP_Laborator
         private static void P28()
         {
             int n = 101;
-            while(n < 1000)
+            while (n < 1000)
             {
                 int prim = 1;
                 for (int div = 2; div <= n / 2; div++)
@@ -624,12 +625,12 @@ namespace probleme_FP_Laborator
                         break;
                     }
                 }
-                if(prim == 1)
+                if (prim == 1)
                 {
                     int oglindit = 0, copien = n;
                     while (copien != 0)
                     {
-                      
+
                         oglindit = oglindit * 10 + copien % 10;
                         copien = copien / 10;
                     }
@@ -642,7 +643,7 @@ namespace probleme_FP_Laborator
                             break;
                         }
                     }
-                    if(primo == 1)
+                    if (primo == 1)
                     {
                         Console.WriteLine(n);
                     }
@@ -656,7 +657,7 @@ namespace probleme_FP_Laborator
         private static void P29()
         {
             int n = int.Parse(Console.ReadLine());
-            if(0 <= n)
+            if (0 <= n)
             {
                 Console.Write(0 + " ");
             }
@@ -668,12 +669,12 @@ namespace probleme_FP_Laborator
             while (nr <= n)
             {
                 int sumaCf = 0, copieNr = nr;
-                while(copieNr > 0)
+                while (copieNr > 0)
                 {
                     sumaCf += copieNr % 10;
                     copieNr = copieNr / 10;
                 }
-                if(sumaCf % 5 == 0)
+                if (sumaCf % 5 == 0)
                 {
                     Console.Write(nr + " ");
                 }
@@ -687,11 +688,11 @@ namespace probleme_FP_Laborator
         /// </summary>
         private static void P30A()
         {
-           
+
             int n = int.Parse(Console.ReadLine());
             int p = int.Parse(Console.ReadLine());
             int copien = n, rez = 0, i = 1;
-            while(copien > 0)
+            while (copien > 0)
             {
                 rez = rez + i * (copien % p);
                 i *= 10;
@@ -699,27 +700,27 @@ namespace probleme_FP_Laborator
 
             }
             Console.WriteLine($" {n} (10) = {rez} ({p})");
-            
+
         }
-      /// <summary>
-      /// Converteste un numar din baza p < 10 in baza 10
-      /// </summary>
+        /// <summary>
+        /// Converteste un numar din baza p < 10 in baza 10
+        /// </summary>
         private static void P30B()
         {
             int n = int.Parse(Console.ReadLine());
             int p = int.Parse(Console.ReadLine());
             int pow = 0, copien = n;
             double rez = 0;
-            while(copien > 0)
+            while (copien > 0)
             {
                 rez = rez + (copien % 10) * Math.Pow(p, pow);
                 pow++;
                 copien /= 10;
             }
             Console.WriteLine($" {n} ({p}) = {rez} (10)");
-           
+
         }
-       
+
         ///  /// <summary>
         /// Transforma radiani in grade
         /// </summary>
@@ -736,8 +737,239 @@ namespace probleme_FP_Laborator
             double gr = double.Parse(Console.ReadLine());
             Console.WriteLine(gr / 180);
         }
+        /// <summary>
+        /// Ia ca parametru un numar x si fiseaza in oridine inversa cifrele si calculeaza suma cifrelor
+        /// </summary>
+
+        private static void P36(int x)
+        {
+            int suma = 0;
+            while (x != 0)
+            {
+                suma += x % 10;
+                Console.Write(x % 10 + " ");
+                x /= 10;
+            }
+            Console.WriteLine($"Suma cifrelor numarului este {suma}");
+        }
+        /// <summary>
+        /// Afiseaza primii n termeni din sirul lui fibonacci
+        /// </summary>
+
+        private static void P37()
+        {
+
+        }
+        /// <summary>
+        /// Calculeaza n!
+        /// </summary>
+        private static void P38()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int factorial = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                factorial *= i;
+            }
+            Console.WriteLine($"{n}! = {factorial}");
+        }
+        /// <summary>
+        /// Calculeaza diferenta dintre doua momente de timp date in ore minute si secunde
+        /// </summary>
+        private static void P39()
+        {
+            Console.WriteLine("Ora inceput:");
+            int startH = int.Parse(Console.ReadLine());
+            int startM = int.Parse(Console.ReadLine());
+            int startS = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ora sfarsit:");
+            int stopH = int.Parse(Console.ReadLine());
+            int stopM = int.Parse(Console.ReadLine());
+            int stopS = int.Parse(Console.ReadLine());
+            int diffH, diffM, diffS;
+            if(stopS < startS)
+            {
+                stopS += 60;
+                stopM--;
+            }
+            if(stopM < startM)
+            {
+                stopM += 60;
+                stopH--;
+            }
+            diffS = stopS - startS;
+            diffM = stopM - startM;
+            diffH = stopH - startH;
+            Console.WriteLine($"{diffH}:{diffM}:{diffS}");
 
 
+        }
+        /// <summary>
+        /// Transforma viteza din m/s in km/h
+        /// </summary>
+        private static void P40()
+        {
+            double v = double.Parse(Console.ReadLine());
+            Console.WriteLine($"{v} m/s = {v * 18 / 5}km/h");
+        }
+        /// <summary>
+        /// Un muncitor termina o lucrare in n zile. Determina in cat timp vor termina lucrarea mai multi muncitori
+        /// </summary>
+       private static void P41()
+       {
+            float n = float.Parse(Console.ReadLine());
+            int nrMuncitori = int.Parse(Console.ReadLine());
+            Console.WriteLine($"{nrMuncitori} muncitori vor termina lucrarea in {n / nrMuncitori} zile.");
+
+        }
+      /// <summary>
+      /// Verifica daca un numar este cub perfect
+      /// </summary>
+        private static void P42()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int cubP = 0;
+            for(int i = (int)Math.Sqrt(n); i >= 0; i--)
+            {
+                if(i * i * i == n)
+                {
+                    cubP = 1;
+                    break;
+                }
+            }
+            Console.WriteLine($"{n}" + (cubP == 1 ? " " : " nu ") + "este un cub perfect.");
+
+        }
+        /// <summary>
+        /// Calculeaza patratele elementelor unui tablou
+        /// </summary>
+        private static void P43()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for(int i = 0; i < n; i++)
+            {
+               v[i] =  int.Parse(Console.ReadLine());
+            }
+            for(int i = 0; i < n; i++)
+            {
+                Console.WriteLine(v[i] * v[i] + " ");
+            }
+
+        }
+        /// <summary>
+        /// Afiseaza tabla inmultirii pentru un numar
+        /// </summary>
+        private static void P44()
+        {
+            int n = int.Parse(Console.ReadLine());
+            for(int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine($"{i} * {n} = {i * n} ");
+            }
+        }
+        /// <summary>
+        /// Inverseaza elementele uni tablou
+        /// </summary>
+        private static void P45()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            int aux;
+            for(int i = 0; i< n / 2; i++)
+            {
+                aux = v[i];
+                v[i] = v[n - i - 1];
+                v[n - i - 1] = aux;
+            }
+           
+            for (int i = 0; i < n; i++)
+            {
+              Console.WriteLine(v[i] + " ");
+            }
+
+        }
+        /// <summary>
+        /// Afiseaza nr care se repeta intr- un tablou
+        /// </summary>
+        private static void P47()
+        {
+            Random rnd = new Random();
+            int[] v = new int[100];
+            int[] freq = new int[100];
+            for (int i = 0; i < 100; i++)
+            {
+                v[i] = rnd.Next(99);
+            }
+            for (int i = 0; i < 100; i++)
+            {
+                Console.Write(v[i] + " ");
+            }
+           
+            for (int i = 0; i< 100; i++)
+            {
+                freq[v[i]]++;
+
+            }
+            Console.WriteLine("\nNumerele care se repeta sunt: ");
+            for (int i = 0; i < 100; i++)
+            {
+                if(freq[i] > 1)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+
+        }
+        /// <summary>
+        /// Aduna doua matrici de dimensiunea nxn
+        /// </summary> Console.WriteLine("Matricea a:\n");
+        private static void P48()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[,] a = new int[n, n];
+            int[,] b = new int[n, n];
+            int[,] suma = new int[n, n];
+            Random rnd = new Random();
+            for (int i = 0; i< n; i++)
+            {
+                for(int j = 0; j < n; j++)
+                {
+                    a[i,j] = rnd.Next(10);
+                    Console.Write(a[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Matricea b:\n");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    b[i, j] = rnd.Next(10);
+                    Console.Write(b[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Suma:\n");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    suma[i, j] = a[i, j] + b[i, j];
+                    Console.Write(suma[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            
+        }
+
+
+
+    
 
 
 

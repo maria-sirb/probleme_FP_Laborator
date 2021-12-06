@@ -6,8 +6,8 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P48();
-               
+            P59();
+
         }
         /// <summary>
         /// Convrtese tempertura din celsius in fahrenheit si invers
@@ -787,12 +787,12 @@ namespace probleme_FP_Laborator
             int stopM = int.Parse(Console.ReadLine());
             int stopS = int.Parse(Console.ReadLine());
             int diffH, diffM, diffS;
-            if(stopS < startS)
+            if (stopS < startS)
             {
                 stopS += 60;
                 stopM--;
             }
-            if(stopM < startM)
+            if (stopM < startM)
             {
                 stopM += 60;
                 stopH--;
@@ -815,23 +815,23 @@ namespace probleme_FP_Laborator
         /// <summary>
         /// Un muncitor termina o lucrare in n zile. Determina in cat timp vor termina lucrarea mai multi muncitori
         /// </summary>
-       private static void P41()
-       {
+        private static void P41()
+        {
             float n = float.Parse(Console.ReadLine());
             int nrMuncitori = int.Parse(Console.ReadLine());
             Console.WriteLine($"{nrMuncitori} muncitori vor termina lucrarea in {n / nrMuncitori} zile.");
 
         }
-      /// <summary>
-      /// Verifica daca un numar este cub perfect
-      /// </summary>
+        /// <summary>
+        /// Verifica daca un numar este cub perfect
+        /// </summary>
         private static void P42()
         {
             int n = int.Parse(Console.ReadLine());
             int cubP = 0;
-            for(int i = (int)Math.Sqrt(n); i >= 0; i--)
+            for (int i = (int)Math.Sqrt(n); i >= 0; i--)
             {
-                if(i * i * i == n)
+                if (i * i * i == n)
                 {
                     cubP = 1;
                     break;
@@ -847,11 +847,11 @@ namespace probleme_FP_Laborator
         {
             int n = int.Parse(Console.ReadLine());
             int[] v = new int[n];
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-               v[i] =  int.Parse(Console.ReadLine());
+                v[i] = int.Parse(Console.ReadLine());
             }
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 Console.WriteLine(v[i] * v[i] + " ");
             }
@@ -863,7 +863,7 @@ namespace probleme_FP_Laborator
         private static void P44()
         {
             int n = int.Parse(Console.ReadLine());
-            for(int i = 0; i <= 10; i++)
+            for (int i = 0; i <= 10; i++)
             {
                 Console.WriteLine($"{i} * {n} = {i * n} ");
             }
@@ -880,16 +880,16 @@ namespace probleme_FP_Laborator
                 v[i] = int.Parse(Console.ReadLine());
             }
             int aux;
-            for(int i = 0; i< n / 2; i++)
+            for (int i = 0; i < n / 2; i++)
             {
                 aux = v[i];
                 v[i] = v[n - i - 1];
                 v[n - i - 1] = aux;
             }
-           
+
             for (int i = 0; i < n; i++)
             {
-              Console.WriteLine(v[i] + " ");
+                Console.WriteLine(v[i] + " ");
             }
 
         }
@@ -909,8 +909,8 @@ namespace probleme_FP_Laborator
             {
                 Console.Write(v[i] + " ");
             }
-           
-            for (int i = 0; i< 100; i++)
+
+            for (int i = 0; i < 100; i++)
             {
                 freq[v[i]]++;
 
@@ -918,7 +918,7 @@ namespace probleme_FP_Laborator
             Console.WriteLine("\nNumerele care se repeta sunt: ");
             for (int i = 0; i < 100; i++)
             {
-                if(freq[i] > 1)
+                if (freq[i] > 1)
                 {
                     Console.Write(i + " ");
                 }
@@ -935,11 +935,11 @@ namespace probleme_FP_Laborator
             int[,] b = new int[n, n];
             int[,] suma = new int[n, n];
             Random rnd = new Random();
-            for (int i = 0; i< n; i++)
+            for (int i = 0; i < n; i++)
             {
-                for(int j = 0; j < n; j++)
+                for (int j = 0; j < n; j++)
                 {
-                    a[i,j] = rnd.Next(10);
+                    a[i, j] = rnd.Next(10);
                     Console.Write(a[i, j] + " ");
                 }
                 Console.WriteLine();
@@ -964,14 +964,272 @@ namespace probleme_FP_Laborator
                 }
                 Console.WriteLine();
             }
-            
+
         }
+        /// <summary>
+        /// Calculeaza media aritemtica a numerelor pare dintr un vector
+        /// </summary>
+        private static void P49()
+        {
+            int n = int.Parse(Console.ReadLine());
+            Random rnd = new Random();
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = rnd.Next(100);
+                Console.Write($"{v[i]} ");
+
+            }
+            float mediaA = 0, nr = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (v[i] % 2 == 0)
+                {
+                    mediaA += v[i];
+                    nr++;
+                }
+
+            }
+            mediaA /= nr;
+            Console.WriteLine($"Media aritmetica = {mediaA}");
+        }
+        /// <summary>
+        /// Determina daca un vector e ordonat crescator
+        /// </summary>
+        private static void P50()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+
+            }
+            int cresc = 1; //presupunem ca vectorul e crescator
+            for (int i = 1; i < n; i++)
+            {
+                if (v[i] < v[i - 1])
+                {
+                    cresc = 0;
+                    break;
+                }
+            }
+            Console.WriteLine("Vectorul" + (cresc == 1 ? " " : " nu ") + "este ordonat crescator.");
+
+        }
+        /// <summary>
+        /// Determina minimul dintr - un vector
+        /// </summary>
+        private static void P51()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+
+            }
+            int minim = int.MaxValue;
+            for (int i = 0; i < n; i++)
+            {
+                if (v[i] < minim)
+                {
+                    minim = v[i];
+                }
+            }
+            Console.WriteLine($"Valoarea minima din vector este {minim}.");
+        }
+        /// <summary>
+        /// Determina daca un vector are numai elem pare
+        /// </summary>
+        private static void P52()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+
+            }
+            int pare = 1;
+            for (int i = 0; i < n; i++)
+            {
+                if (v[i] % 2 == 1)
+                {
+                    pare = 0;
+                    break;
+                }
+            }
+            Console.WriteLine("Vectorul" + (pare == 1 ? " " : " nu ") + "are doar elemente pare.");
+
+        }
+        /// <summary>
+        /// Determina daca un vector are numai elem impare
+        /// </summary>
+        private static void P53()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+
+            }
+            int impare = 1;
+            for (int i = 0; i < n; i++)
+            {
+                if (v[i] % 2 == 0)
+                {
+                    impare = 0;
+                    break;
+                }
+            }
+            Console.WriteLine("Vectorul" + (impare == 1 ? " " : " nu ") + "are doar elemente impare.");
 
 
 
-    
+        }
+        /// <summary>
+        /// Determina raportul de elemente pare si impare dintr- un vector
+        /// </summary>
+        private static void P54()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
 
+            }
+            float nrPare = 0, nrImpare = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (v[i] % 2 == 0)
+                {
+                    nrPare++;
+                }
+                else
+                {
+                    nrImpare++;
+                }
 
+            }
+            Console.WriteLine($"Raportul dintre elementele pare si cele impare este : {nrPare / nrImpare}");
+        }
+        /// <summary>
+        /// Calculeaza expresia e = x1 - x2 + x3 - x4 + … ± xn.(elem unui vector)
+        /// </summary>
+        private static void P55()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
 
+            }
+            int e = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (i % 2 == 0) //adunam elementele de indice par si scadem elementele de indice impar
+                {
+                    e += v[i];
+                }
+                else
+                {
+                    e -= v[i];
+                }
+
+            }
+            Console.WriteLine($"e = {e}");
+        }
+        /// <summary>
+        /// Construieste un vector cu primii n termeni ai sirului lui Fibonacci
+        /// </summary>
+        private static void P56()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            v[0] = 1;
+            v[1] = 1;
+            for (int i = 2; i < n; i++)
+            {
+                v[i] = v[i - 1] + v[i - 2];
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+        }
+        /// <summary>
+        /// Determina pozitia primului element dintr-un vector cu proprietatea
+        /// ca este media aritmetică între succesorul și predecesorul său
+        /// </summary>
+        private static void P57()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+
+            }
+            int gasit = 0;
+            for (int i = 1; i < n - 1 && gasit == 0; i++)
+            {
+                if (v[i] == (v[i + 1] + v[i - 1]) / 2)
+                {
+                    Console.WriteLine($"Pozitia primului element egal cu media aritmetca dintre succesorul si predecesorul sau este {i}.");
+                    gasit = 1;
+                }
+            }
+            if (gasit == 0)
+            {
+                Console.WriteLine("Nu exista.");
+            }
+        }
+        /// <summary>
+        /// Determina pozitia ultimului element dintr-un vector care este egal cu k
+        /// </summary>
+        private static void P58()
+        {
+            int k = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            for(int i  = n - 1; i >= 0; i--)
+            {
+                if (v[i] == k)
+                {
+                    Console.WriteLine($"Ultimul element din vector egal cu {k} este pe pozitia {i}.");
+                    break;
+                }
+            }
+        }
+        /// <summary>
+        /// Elimina elementul de pe pozitia poz dintr-un vector
+        /// </summary>
+        private static void P59()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int poz = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            for(int i = poz; i < n - 1; i++)
+            {
+                v[i] = v[i + 1];
+            }
+            for(int i = 0; i< n - 1; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+        }
     }
 }
+

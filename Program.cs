@@ -6,7 +6,7 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P59();
+            P37();
 
         }
         /// <summary>
@@ -720,6 +720,7 @@ namespace probleme_FP_Laborator
             Console.WriteLine($" {n} ({p}) = {rez} (10)");
 
         }
+        ///Problemele 31 32 si 33 se repeta
 
         ///  /// <summary>
         /// Transforma radiani in grade
@@ -758,6 +759,22 @@ namespace probleme_FP_Laborator
 
         private static void P37()
         {
+            int n = int.Parse(Console.ReadLine());
+            int t1 = 1;
+            int t2 = 1;
+            int t3;
+            Console.Write("1 1 ");
+            int nrTermeni = 2;
+            while(nrTermeni < n)
+            {
+                t3 = t1 + t2;
+                nrTermeni++;
+                Console.Write($"{t3} ");
+                t1 = t2;
+                t2 = t3;
+
+            }
+
 
         }
         /// <summary>
@@ -892,7 +909,9 @@ namespace probleme_FP_Laborator
                 Console.WriteLine(v[i] + " ");
             }
 
+            
         }
+        //Problema 46 se repeta
         /// <summary>
         /// Afiseaza nr care se repeta intr- un tablou
         /// </summary>
@@ -1230,6 +1249,159 @@ namespace probleme_FP_Laborator
                 Console.Write($"{v[i]} ");
             }
         }
+        /// <summary>
+        /// Elimina toate elementele dintr-un vector car sunt egale cu k
+        /// </summary>
+        private static void P60()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int k = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            int nrElem = n;
+            for (int j = 0; j < n; j++)
+            {
+                v[j] = int.Parse(Console.ReadLine());
+            }
+            int i = 0;
+            while(i < nrElem)
+            {
+                if(v[i] == k)
+                {
+                    for(int j = i; j< nrElem - 1; j++)
+                    {
+                        v[j] = v[j + 1];
+                       
+                    }
+                    nrElem--;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            for (int j = 0; j < nrElem; j++)
+            {
+                Console.Write($"{v[j]} ");
+            }
+        }
+        /// <summary>
+        /// Insereaza intr-un vector valoarea x pe pozitia k 
+        /// </summary>
+        private static void P61()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int x = int.Parse(Console.ReadLine());
+            int k = int.Parse(Console.ReadLine());
+            int[] v = new int[n + 1];
+            for (int i  = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            for(int i = n ; i > k; i--)
+            {
+                v[i] = v[i - 1];
+            }
+            v[k] = x;
+            for (int i = 0; i <= n; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+        }
+        /// <summary>
+        /// Insereaza intre oricare doua elemente ale unui vector media lor aritmetica
+        /// </summary>
+        private static void P62()
+        {
+            int n = int.Parse(Console.ReadLine());
+            float[] v = new float[2 * n - 1];
+            int nrElem = n;
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = float.Parse(Console.ReadLine());
+            }
+            for(int i = 1; i< 2 * n - 2; i +=2)
+            {
+               for(int j = nrElem; j > i; j--)
+                {
+                    v[j] = v[j - 1];
+                }
+                v[i] = (v[i - 1] + v[i + 1]) / 2;
+                nrElem++;
+            }
+            for(int i = 0; i < nrElem; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+
+
+        }
+        /// <summary>
+        /// Extrage dintr-un vector numerele care au ultima cifra k si formeaza un alt vector cu ele
+        /// </summary>
+        private static void P63()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            int[] v2 = new int[n];
+            int k = int.Parse(Console.ReadLine());
+            int j = 0;
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            for(int i = 0; i < n; i++)
+            {
+                if(v[i] % 10 == k)
+                {
+                    v2[j] = v[i];
+                    j++;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+            for (int i = 0; i < j; i++)
+            {
+                Console.Write($"{v2[i]} ");
+            }
+
+        }
+        /// <summary>
+        /// Se da un vector. Cu ajutorul unui alt vector se asaza numerele pare la inceput
+        /// </summary>
+        private static void P64()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            int[] v2 = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            int k = 0, l = n - 1;
+            for(int i = 0; i< n; i++)
+            {
+                if(v[i] % 2 == 0)
+                {
+                    v2[k] = v[i];
+                    k++;
+                }
+                else
+                {
+                    v2[l] = v[i];
+                    l--;
+                }
+                
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v2[i]} ");
+            }
+
+        }
+
     }
 }
+
 

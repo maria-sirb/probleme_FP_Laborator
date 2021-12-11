@@ -6,11 +6,11 @@ namespace probleme_FP_Laborator
     {
         static void Main(string[] args)
         {
-            P37();
+            P65();
 
         }
         /// <summary>
-        /// Convrtese tempertura din celsius in fahrenheit si invers
+        /// Convertese temperatura din celsius in fahrenheit si invers
         /// </summary>
         private static void P1()
         {
@@ -1400,6 +1400,209 @@ namespace probleme_FP_Laborator
             }
 
         }
+        /// <summary>
+        /// Afiseaza in oridine crescatare elementele din vector care pot fi formate prin 
+        /// adunarea altor doua elemente din vector
+        /// </summary>
+        private static void P65()
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+           //sortare crescatoare vector
+            int ok = 0;
+            while (ok == 0)
+            {
+                ok = 1;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    if (v[i] > v[i + 1])
+                    {
+                        int aux = v[i];
+                        v[i] = v[i + 1];
+                        v[i + 1] = aux;
+                        ok = 0;
+                    }
+                }
+            }
+         /*   for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }*/
+         //verificam pe rand care elemente din vector se pot forma prin adunarea altor doua elemente, mai mici decat el
+            int gasit;
+            for (int i = 2; i < n; i++)
+            {
+                gasit = 0;
+                for(int j = i - 1; j > 0 && gasit == 0; j--)
+                {
+                    for(int k = j - 1; k >= 0 && gasit == 0; k--)
+                    {
+                        if(v[i] == v[j] + v[k])
+                        {
+                            gasit = 1;//am gasit o combinatie de elemente care adunate = v[i]
+                            Console.Write($"{v[i]} ");
+                        }
+                    }
+                }
+            }
+           
+        }
+        /// <summary>
+        /// Determina cate elemente dintr-un vector sunt pe aceeasi pozitie 
+        /// si dupa sortarea descrescatoare a vectorului
+        /// </summary>
+        private static void P66()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            int[] copie = new int[n];
+            Array.Copy(v, copie, n);
+            int ok = 0;
+            while (ok == 0)
+            {
+                ok = 1;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    if (v[i] < v[i + 1])
+                    {
+                        int aux = v[i];
+                        v[i] = v[i + 1];
+                        v[i + 1] = aux;
+                        ok = 0;
+                    }
+                }
+            }
+            int nr = 0;
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v[i]} ");
+                if(v[i] == copie[i])
+                {
+                    nr++;
+                }
+
+            }
+            Console.WriteLine($"\n{nr} elemente sunt pe aceeasi pozitie.");
+        }
+        /// <summary>
+        /// Ordoneaza prima jumatate a unui vector crescator
+        /// iar a doua descrescator
+        /// </summary>
+        private static void P67()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            //Prima jumatate
+            int ok = 0;
+            while (ok == 0)
+            {
+                ok = 1;
+                for (int i = 0; i < n / 2 - 1; i++)
+                {
+                    if (v[i] > v[i + 1])
+                    {
+                        int aux = v[i];
+                        v[i] = v[i + 1];
+                        v[i + 1] = aux;
+                        ok = 0;
+                    }
+                }
+            }
+                //A doua jumatate
+                ok = 0;
+            while (ok == 0)
+            {
+                ok = 1;
+                for (int i = n/ 2; i < n - 1; i++)
+                {
+                    if (v[i] < v[i + 1])
+                    {
+                        int aux = v[i];
+                        v[i] = v[i + 1];
+                        v[i + 1] = aux;
+                        ok = 0;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+        }
+        /// <summary>
+        /// Verifica daca prin rearanjarea elementelor unui vector
+        /// acestea pot forma un palindrom
+        /// </summary>
+        private static void P68()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            int[] freq = new int[10];
+            for(int i = 0; i < n; i++)
+            {
+                freq[v[i]]++;
+            }
+            int aparitiiImpare = 0; //numara cate cifre apar de un nr impar de ori
+            for(int i = 0; i < 10 && aparitiiImpare < 2; i++) 
+            {
+                if(freq[i] % 2 == 1)
+                {
+                    aparitiiImpare++;
+                }
+            }
+            //elementele vectorului pot forma un palindrom daca cel mult o cifra apare de un numar impar de ori in vector
+            Console.WriteLine($"Prin rearanjare vectorul" + (aparitiiImpare < 2 ? " " : " nu ") + "poate forma un palindrom.");
+        }
+        /// <summary>
+        /// Ordoneaza inaltimile a n copii in ordine crescatoare
+        /// </summary>
+        private static void P69()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                v[i] = int.Parse(Console.ReadLine());
+            }
+            int ok = 0;
+            while (ok == 0)
+            {
+                ok = 1;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    if(v[i] > v[i + 1])
+                    {
+                        int aux = v[i];
+                        v[i] = v[i + 1];
+                        v[i + 1] = aux;
+                        ok = 0;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{v[i]} ");
+            }
+
+        }
+
 
     }
 }
